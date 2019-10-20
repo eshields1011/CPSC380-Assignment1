@@ -1,12 +1,12 @@
-import java.util.ArrayList;
 import java.util.stream.IntStream;
+import java.util.ArrayList;
 
 public class Grid extends Thread
 {
-  private ArrayList<int[]> solution = new ArrayList<>();
+  private int[][] solution = new int[9][9];
   public ArrayList<int[]> errors = new ArrayList<>();
 
-  public Grid(ArrayList<int[]> sudoku)
+  public Grid(int[][] sudoku)
   {
     solution = sudoku; // Set our parsed sudoku grid to a local variable we can work with
   }
@@ -24,7 +24,7 @@ public class Grid extends Thread
         {
           int r = ((i / 3) * 3) + m; // specifies the 3x3 grid's row indexes
           int c = ((i % 3) * 3) + n; // specifiex the 3x3 grid's column indexes
-          grid[index++] = solution.get(r)[c];
+          grid[index++] = solution[r][c];
         }
       }
 

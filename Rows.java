@@ -1,12 +1,12 @@
-import java.util.ArrayList;
 import java.util.stream.IntStream;
+import java.util.ArrayList;
 
 public class Rows extends Thread
 {
-  private ArrayList<int[]> solution = new ArrayList<>();
-  public ArrayList<int[]> errors = new ArrayList<>();
+  private int[][] solution = new int[9][9];
+  private ArrayList<int[]> errors = new ArrayList<>();
 
-  public Rows(ArrayList<int[]> sudoku)
+  public Rows(int[][] sudoku)
   {
     solution = sudoku; // Set our parsed sudoku grid to a local variable we can work with
   }
@@ -15,7 +15,7 @@ public class Rows extends Thread
   {
     for(int i = 0; i < 9; i++)
     {
-      int[] row = solution.get(i); // Grab one row at a time
+      int[] row = solution[i]; // Grab one row at a time
       for (int j = 0; j < 9; j++) // Iterate through each row
       {
         int num = j + 1; // Check each number 1-9

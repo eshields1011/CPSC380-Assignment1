@@ -1,12 +1,12 @@
-import java.util.ArrayList;
 import java.util.stream.IntStream;
+import java.util.ArrayList;
 
 public class Columns extends Thread
 {
-  private ArrayList<int[]> solution = new ArrayList<>();
+  private int[][] solution = new int[9][9];
   public ArrayList<int[]> errors = new ArrayList<>();
 
-  public Columns(ArrayList<int[]> sudoku)
+  public Columns(int[][] sudoku)
   {
     solution = sudoku; // Set our parsed sudoku grid to a local variable we can work with
   }
@@ -18,7 +18,7 @@ public class Columns extends Thread
       int[] column = new int[9]; // Array to hold the column values
       for (int m = 0; m < 9; m++)
       {
-        column[m] = solution.get(m)[i]; // Builds the columns properly from our ArrayList
+        column[m] = solution[m][i]; // Builds the columns properly from our ArrayList
       }
       for (int j = 0; j < 9; j++) // Iterate through each column
       {

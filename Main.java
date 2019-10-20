@@ -1,26 +1,27 @@
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 public class Main
 {
   public static void main(String[] args)
   {
-    ArrayList<int[]> sudoku = new ArrayList<>();
+    int[][] sudoku = new int[9][9];
     try
     { //  Create input stream reader
       BufferedReader csvReader = new BufferedReader(new FileReader(args[0])); // File name taken in from command line
       String row = null;
+      int index = 0;
       while ((row = csvReader.readLine()) != null) // Go through the file line by line
       {
-          String[] input = row.split(","); // Parse values separated by commas
-          int[] nums = new int[input.length];
-          for (int i = 0; i < input.length; i++) // Convert parsed strings to int array
-          {
-            nums[i] = Integer.parseInt(input[i]);
-          }
-          sudoku.add(nums); // Add int array to our array list
+        String[] input = row.split(","); // Parse values separated by commas
+        int[] nums = new int[9];
+        for (int i = 0; i < 9; i++) // Convert parsed strings to int array
+        {
+          nums[i] = Integer.parseInt(input[i]);
+        }
+        sudoku[index++] = nums; // Add int array to our array list
       }
       csvReader.close(); // close the input stream reader
     }
